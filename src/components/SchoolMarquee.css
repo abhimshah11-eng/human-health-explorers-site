@@ -1,0 +1,113 @@
+.marquee-section {
+  padding: clamp(56px, 7vw, 88px) 0;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.marquee-head {
+  max-width: 720px;
+  margin-bottom: 44px;
+}
+
+.marquee-head h2 {
+  margin-bottom: 14px;
+}
+
+.marquee-head p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.marquee {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent);
+}
+
+.marquee-row {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  animation: marquee-scroll linear infinite;
+}
+
+.marquee-track.is-reverse {
+  animation-direction: reverse;
+}
+
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.school-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 176px;
+  height: 112px;
+  padding: 8px 16px;
+  flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  transition: transform 0.22s ease;
+}
+
+/* Caps are in px, not %. A percentage max-height resolves against an indefinite
+   row height and silently computes to `none`, which let tall logos overflow and
+   get cropped by the row's overflow:hidden. */
+.school-tile img {
+  max-width: 144px;
+  max-height: 96px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.school-tile:hover {
+  transform: scale(1.06);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .school-tile {
+    width: 126px;
+    height: 84px;
+    padding: 6px 12px;
+  }
+  .school-tile img {
+    max-width: 102px;
+    max-height: 72px;
+  }
+}

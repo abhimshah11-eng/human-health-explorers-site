@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260" role="img" aria-label="Illustration of a phone and an endless scroll loop, representing how social media apps are designed to be addictive">
+  <rect width="400" height="260" fill="#101c33"/>
+
+  <!-- endless-loop ribbon behind the phone -->
+  <path d="M96 130c0-26 21-47 47-47s47 21 47 47-21 47-47 47-47-21-47-47zM190 130c0-26 21-47 47-47s47 21 47 47-21 47-47 47-47-21-47-47z"
+        fill="none" stroke="#26d0ff" stroke-width="9" stroke-linecap="round" opacity="0.55"/>
+
+  <!-- phone -->
+  <rect x="158" y="42" width="84" height="176" rx="16" fill="#1a2b4a" stroke="#26d0ff" stroke-width="5"/>
+  <rect x="168" y="60" width="64" height="126" rx="7" fill="#0f7a8c" opacity="0.5"/>
+  <rect x="186" y="50" width="28" height="5" rx="2.5" fill="#26d0ff"/>
+
+  <!-- feed cards scrolling -->
+  <g fill="#eef4fa" opacity="0.9">
+    <rect x="176" y="70" width="48" height="30" rx="4"/>
+    <rect x="176" y="106" width="48" height="30" rx="4"/>
+    <rect x="176" y="142" width="48" height="30" rx="4"/>
+  </g>
+
+  <!-- dopamine hits -->
+  <g fill="#26d0ff">
+    <path d="M262 78c5-9 18-8 21 2 3 9-9 17-15 22-8-6-14-15-6-24z"/>
+    <circle cx="300" cy="128" r="7"/>
+    <circle cx="116" cy="92" r="6"/>
+  </g>
+  <path d="M118 172c6-10 20-9 23 2 3 10-10 18-16 23-9-6-15-16-7-25z" fill="#0f7a8c"/>
+
+  <!-- downward scroll arrow -->
+  <path d="M200 196v18M192 208l8 9 8-9" fill="none" stroke="#26d0ff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,0 +1,343 @@
+.workshop-stats {
+  padding: 44px 0 0;
+}
+
+.workshop-stats-note {
+  max-width: 76ch;
+  margin: 26px auto 0;
+  text-align: center;
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+/* Driven by workshopStats so the headline can never drift from the stat bar. */
+.workshop-intro h2 {
+  font-size: clamp(2.1rem, 4.4vw, 3.2rem);
+  margin-bottom: 16px;
+}
+
+.workshop-intro p {
+  max-width: 62ch;
+  margin-inline: auto;
+}
+
+.workshop-list {
+  display: grid;
+  gap: 56px;
+}
+
+/* ---------- heading row (number + title + meta), outside the card ---------- */
+
+.workshop-head {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 18px;
+}
+
+.workshop-num {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--cyan) 0%, var(--teal) 100%);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  box-shadow: 0 10px 22px -12px rgba(15, 122, 140, 0.9);
+}
+
+.workshop-heading h3 {
+  margin-bottom: 8px;
+  font-size: clamp(1.4rem, 2.6vw, 2rem);
+}
+
+.workshop-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.workshop-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--teal);
+}
+
+.workshop-meta svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+/* ---------- card body: description + photos | sessions panel ---------- */
+
+.workshop-body {
+  display: grid;
+  grid-template-columns: 1.9fr 1fr;
+  gap: 32px;
+}
+
+.workshop-summary {
+  color: var(--ink);
+  font-size: 1.02rem;
+  line-height: 1.75;
+  margin: 0;
+  max-width: 72ch;
+}
+
+.workshop-photos {
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.workshop-photos figure {
+  margin: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-2);
+}
+
+.workshop-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.workshop-photos.count-1 figure {
+  aspect-ratio: 3 / 2;
+}
+
+.workshop-photos.count-1 img {
+  object-position: 50% 42%;
+}
+
+.workshop-photos.count-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.workshop-photos.count-2 figure {
+  aspect-ratio: 4 / 3;
+}
+
+/* Collage: one lead image spanning both rows, two stacked beside it. A fixed
+   row height keeps the block short and, at this width, renders the lead photo at
+   roughly its native size instead of upscaling it. */
+.workshop-photos.count-3 {
+  grid-template-columns: 1.55fr 1fr;
+  /* Tall enough that a portrait source isn't cropped to a letterbox strip. */
+  grid-template-rows: repeat(2, 166px);
+}
+
+.workshop-photos.count-3 figure:first-child {
+  grid-row: 1 / span 2;
+}
+
+.workshop-photos.count-3 figure:first-child img {
+  object-position: 50% 42%;
+}
+
+/* ---------- sessions panel ---------- */
+
+.workshop-sessions {
+  align-self: start;
+  border-radius: var(--radius);
+  background: var(--white);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  box-shadow: 0 8px 22px -18px rgba(16, 28, 51, 0.5);
+}
+
+.workshop-sessions h4 {
+  margin: 0;
+  padding: 16px 20px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(38, 208, 255, 0.12);
+  border-bottom: 1px solid var(--line);
+}
+
+.workshop-sessions ol {
+  list-style: none;
+  margin: 0;
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+}
+
+.workshop-sessions li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.workshop-sessions li:hover {
+  background: var(--surface);
+}
+
+.workshop-session-num {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--cyan) 0%, var(--teal) 100%);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.workshop-session-label {
+  font-size: 0.93rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+/* ---------- CTA ---------- */
+
+/* ---------- named reference callout ----------
+   Deliberately unlike the anonymous parent/student carousel: a single static
+   quote in a bordered document-style card, signed with a real name and title. */
+
+.reference-section {
+  padding-bottom: clamp(56px, 7vw, 84px);
+}
+
+.reference-card {
+  position: relative;
+  margin: 0;
+  max-width: 860px;
+  margin-inline: auto;
+  padding: 40px 44px 36px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--teal);
+}
+
+.reference-label {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+
+.reference-mark {
+  position: absolute;
+  top: 34px;
+  right: 40px;
+  width: 42px;
+  height: 32px;
+  color: rgba(15, 122, 140, 0.16);
+}
+
+.reference-card blockquote {
+  margin: 0 0 26px;
+}
+
+.reference-card blockquote p {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 1.9vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--navy);
+}
+
+.reference-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.reference-name {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.reference-role {
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .reference-card {
+    padding: 30px 24px 26px;
+  }
+  .reference-mark {
+    display: none;
+  }
+}
+
+.workshop-cta {
+  padding: clamp(72px, 9vw, 108px) 0;
+  background: linear-gradient(140deg, var(--navy) 0%, var(--teal) 130%);
+  text-align: center;
+}
+
+.workshop-cta h2 {
+  color: var(--white);
+  max-width: 20ch;
+  margin-inline: auto;
+}
+
+.workshop-cta .lede {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 62ch;
+  margin: 0 auto 32px;
+}
+
+.workshop-cta .btn-row {
+  justify-content: center;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 900px) {
+  .workshop-body {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+}
+
+@media (max-width: 560px) {
+  .workshop-head {
+    gap: 14px;
+  }
+  .workshop-num {
+    width: 44px;
+    height: 44px;
+    font-size: 1.15rem;
+  }
+  .workshop-meta {
+    gap: 4px 14px;
+  }
+  .workshop-photos.count-3 {
+    grid-template-rows: repeat(2, 132px);
+  }
+}

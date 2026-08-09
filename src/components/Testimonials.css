@@ -1,0 +1,153 @@
+.testimonials {
+  padding: clamp(64px, 8vw, 100px) 0;
+  background: var(--surface);
+  text-align: center;
+}
+
+.testimonials-title {
+  font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+  margin-bottom: 34px;
+}
+
+.testimonial-stage {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding-top: 34px;
+}
+
+/* Every quote occupies the same grid cell. The tallest one sets the height, so
+   the section is sized to whichever set it was given and never jumps mid-cycle. */
+.testimonial-quotes {
+  display: grid;
+  align-items: center;
+}
+
+.testimonial-quotes > * {
+  grid-area: 1 / 1;
+}
+
+.testimonial-mark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 30px;
+  color: rgba(15, 122, 140, 0.28);
+}
+
+.testimonial-quote {
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;          /* still contributes to sizing the grid cell */
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.5s;
+}
+
+.testimonial-quote.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.testimonial-quote p {
+  margin: 0 0 22px;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
+  color: var(--navy);
+  text-wrap: balance;
+}
+
+.testimonial-quote cite {
+  font-style: normal;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* ---------- controls ---------- */
+
+.testimonial-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.testimonial-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy);
+  transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.testimonial-arrow:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.testimonial-arrow:focus-visible,
+.testimonial-dot:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.testimonial-dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.testimonial-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(22, 35, 61, 0.2);
+  transition: background 0.2s ease, transform 0.2s ease, width 0.2s ease;
+}
+
+.testimonial-dot:hover {
+  background: rgba(22, 35, 61, 0.4);
+}
+
+.testimonial-dot.is-active {
+  width: 26px;
+  border-radius: 999px;
+  background: var(--teal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-quote {
+    transition: none;
+    transform: none;
+  }
+  .testimonial-arrow:hover {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .testimonial-nav {
+    gap: 12px;
+  }
+  .testimonial-dots {
+    gap: 7px;
+  }
+}

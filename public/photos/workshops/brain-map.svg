@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" width="400" height="260" role="img" aria-label="Diagram of the four lobes of the brain used in the Brain Map game">
+  <defs>
+    <clipPath id="brainClip">
+      <path d="M92 108c0-30 22-55 52-61 12-19 36-29 60-25 20 3 36 14 45 30 30 1 55 22 58 50 3 24-11 46-32 57 1 20-13 38-34 43-18 4-36-3-46-17-13 11-32 14-48 7-18-8-28-26-25-45-17-9-29-24-30-39z"/>
+    </clipPath>
+  </defs>
+
+  <rect width="400" height="260" fill="#101c33"/>
+
+  <g clip-path="url(#brainClip)">
+    <rect x="80" y="10" width="76" height="250" fill="#26d0ff"/>
+    <rect x="156" y="10" width="78" height="120" fill="#5ee0ff"/>
+    <rect x="234" y="10" width="80" height="120" fill="#0f7a8c"/>
+    <rect x="156" y="130" width="160" height="130" fill="#004aad"/>
+  </g>
+
+  <!-- outline -->
+  <path d="M92 108c0-30 22-55 52-61 12-19 36-29 60-25 20 3 36 14 45 30 30 1 55 22 58 50 3 24-11 46-32 57 1 20-13 38-34 43-18 4-36-3-46-17-13 11-32 14-48 7-18-8-28-26-25-45-17-9-29-24-30-39z"
+        fill="none" stroke="#eef4fa" stroke-width="7" stroke-linejoin="round"/>
+
+  <!-- lobe divisions -->
+  <g fill="none" stroke="#101c33" stroke-width="5" opacity="0.55">
+    <path d="M156 47v185M234 47v83M156 130h160"/>
+  </g>
+
+  <!-- folds -->
+  <g fill="none" stroke="#101c33" stroke-width="4.5" stroke-linecap="round" opacity="0.4">
+    <path d="M118 96c14 5 19 20 11 32-8 12-3 25 9 30"/>
+    <path d="M190 68c-7 15 1 28 14 34"/>
+    <path d="M266 78c-13 6-18 20-11 32"/>
+    <path d="M196 168c-8 13-4 26 8 33"/>
+    <path d="M268 160c-13 4-20 16-16 28"/>
+  </g>
+
+  <!-- brainstem + cerebellum -->
+  <path d="M186 226c7 13 6 24-4 32" fill="none" stroke="#eef4fa" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="242" cy="214" r="21" fill="#0f7a8c" stroke="#eef4fa" stroke-width="6"/>
+</svg>

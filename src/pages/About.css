@@ -1,0 +1,369 @@
+/* ---------- mission ---------- */
+
+.about-mission {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-mission h2 {
+  margin: 0;
+}
+
+.about-mission-body p {
+  font-size: 1.06rem;
+  line-height: 1.78;
+  color: var(--muted);
+}
+
+.about-mission-body p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- impact ---------- */
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.impact-card {
+  height: 100%;
+  padding: 30px 26px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-dark);
+}
+
+.impact-tag {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 18px;
+}
+
+.impact-value {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 3.6vw, 3rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--white);
+}
+
+.impact-label {
+  margin: 12px 0 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--cyan);
+  font-size: 1rem;
+}
+
+.impact-card p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.58);
+}
+
+/* ---------- breakdown ---------- */
+
+.breakdown {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 22px;
+  align-items: start;
+}
+
+.breakdown-panel {
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.breakdown-panel h3 {
+  margin-bottom: 4px;
+}
+
+.breakdown-sub {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 26px;
+}
+
+.bar-list li {
+  margin-bottom: 20px;
+}
+
+.bar-list li:last-child {
+  margin-bottom: 0;
+}
+
+.bar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 8px;
+}
+
+.bar-label {
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.bar-value {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--teal);
+  white-space: nowrap;
+}
+
+.bar-track {
+  height: 9px;
+  border-radius: 999px;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--teal), var(--cyan));
+}
+
+.school-group {
+  margin-bottom: 24px;
+}
+
+.school-group:last-child {
+  margin-bottom: 0;
+}
+
+.school-group h4 {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.school-group h4 em {
+  font-style: normal;
+  color: var(--teal);
+}
+
+.school-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.school-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.85rem;
+  color: var(--ink);
+}
+
+/* ---------- team ---------- */
+
+.team-tier-title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin: 48px 0 20px;
+}
+
+.team-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.team-grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.team-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 780px;
+}
+
+.team-card {
+  height: 100%;
+  padding: 32px 28px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--white);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+  border-color: rgba(38, 208, 255, 0.42);
+}
+
+/* Placeholder avatar. Same circle a real headshot occupies, so swapping a photo
+   in needs no layout change: set `photo` on the member and it renders instead.
+   Background colour is set inline and cycles per person (see About.jsx). */
+.team-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  flex-shrink: 0;
+}
+
+/* Same box when a real headshot lands. */
+img.team-avatar {
+  object-fit: cover;
+  display: block;
+}
+
+.team-card h3 {
+  margin-bottom: 3px;
+  font-size: 1.25rem;
+}
+
+.team-role {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.team-bio {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.team-mentors-sub {
+  color: var(--muted);
+  margin-top: -12px;
+  margin-bottom: 20px;
+}
+
+.mentor-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.mentor-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  padding: 9px 20px 9px 9px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.94rem;
+  color: var(--navy);
+  transition: border-color 0.18s ease;
+}
+
+.mentor-chip:hover {
+  border-color: rgba(38, 208, 255, 0.55);
+}
+
+.mentor-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+img.mentor-avatar {
+  object-fit: cover;
+  display: block;
+}
+
+/* ---------- CTA ---------- */
+
+.about-cta {
+  padding: clamp(72px, 9vw, 108px) 0;
+  background: linear-gradient(140deg, var(--navy-deep) 0%, var(--teal) 140%);
+  text-align: center;
+}
+
+.about-cta h2 {
+  color: var(--white);
+  max-width: 22ch;
+  margin-inline: auto;
+}
+
+.about-cta .lede {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 60ch;
+  margin: 0 auto 32px;
+}
+
+.about-cta .btn-row {
+  justify-content: center;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1000px) {
+  .about-mission {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .breakdown {
+    grid-template-columns: 1fr;
+  }
+  .team-grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .impact-grid,
+  .team-grid-3,
+  .team-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .breakdown-panel {
+    padding: 26px 22px;
+  }
+}

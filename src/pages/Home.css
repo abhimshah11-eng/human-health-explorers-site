@@ -1,0 +1,431 @@
+/* ---------- hero ---------- */
+
+.home-hero {
+  position: relative;
+  background: linear-gradient(155deg, var(--navy) 0%, var(--navy-deep) 62%, #0b1626 100%);
+  padding: calc(var(--nav-h) + 68px) 0 92px;
+  overflow: hidden;
+}
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(720px 460px at 88% 4%, rgba(38, 208, 255, 0.24), transparent 62%),
+    radial-gradient(660px 420px at -4% 96%, rgba(15, 122, 140, 0.4), transparent 60%);
+  pointer-events: none;
+}
+
+.home-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  align-items: center;
+  gap: 62px;
+}
+
+.home-hero-copy .pill {
+  margin-bottom: 22px;
+}
+
+.home-hero h1 {
+  color: var(--white);
+  margin-bottom: 22px;
+}
+
+.home-hero-accent {
+  background: linear-gradient(96deg, var(--cyan) 0%, #7ce8ff 55%, var(--teal) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.home-hero .lede {
+  color: rgba(255, 255, 255, 0.76);
+  max-width: 48ch;
+  margin-bottom: 34px;
+}
+
+.home-hero-media {
+  position: relative;
+}
+
+.home-hero-glow {
+  position: absolute;
+  inset: -22px;
+  background: linear-gradient(120deg, rgba(38, 208, 255, 0.28), rgba(15, 122, 140, 0.3));
+  border-radius: 40px;
+  filter: blur(38px);
+}
+
+/* ---------- mission ---------- */
+
+.home-mission {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.home-mission h2 {
+  margin: 0;
+}
+
+.home-mission-body p {
+  font-size: 1.06rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+.home-mission-kicker {
+  font-family: var(--font-display);
+  font-size: 1.15rem !important;
+  font-weight: 600;
+  color: var(--teal) !important;
+  margin-bottom: 26px !important;
+}
+
+/* ---------- impact strip ---------- */
+
+.home-impact {
+  background: var(--navy);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.home-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.home-impact-item {
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--line-dark);
+}
+
+.home-impact-value {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--cyan);
+}
+
+.home-impact-label {
+  margin: 10px 0 6px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--white);
+  font-size: 0.98rem;
+}
+
+.home-impact-item p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ---------- season tabs ---------- */
+
+.season-tabs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 7px;
+  margin: 0 auto 44px;
+  width: fit-content;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.season-tab {
+  padding: 11px 24px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 0.94rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.season-tab:hover {
+  color: var(--navy);
+}
+
+.season-tab.is-active {
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 10px 22px -14px rgba(16, 28, 51, 0.9);
+}
+
+/* ---------- program cards ---------- */
+
+.program-cards {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 22px;
+  animation: fade-swap 0.36s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes fade-swap {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.program-card-feature {
+  padding: 40px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(150deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: rgba(255, 255, 255, 0.78);
+  position: relative;
+  overflow: hidden;
+}
+
+.program-card-feature::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(420px 260px at 100% 0%, rgba(38, 208, 255, 0.2), transparent 62%);
+  pointer-events: none;
+}
+
+.program-card-feature > * {
+  position: relative;
+  z-index: 1;
+}
+
+.program-card-feature .pill {
+  background: rgba(38, 208, 255, 0.16);
+  color: var(--cyan);
+  border-color: rgba(38, 208, 255, 0.32);
+  margin-bottom: 20px;
+}
+
+.program-card-feature .pill-upcoming {
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.program-card-feature h3 {
+  color: var(--white);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  margin-bottom: 14px;
+}
+
+.program-card-feature p {
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 46ch;
+}
+
+.program-card-stat {
+  display: block;
+  margin: 8px 0 22px;
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--cyan);
+}
+
+.program-alt .program-card-stat {
+  color: var(--teal);
+}
+
+.program-card-link {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--white);
+  border-bottom: 2px solid rgba(38, 208, 255, 0.55);
+  padding-bottom: 3px;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.program-card-link:hover {
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+.program-alt .program-card-link {
+  color: var(--navy);
+  border-color: rgba(15, 122, 140, 0.4);
+}
+
+.program-alt .program-card-link:hover {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.program-card-side {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  align-content: start;
+}
+
+.program-mini {
+  padding: 22px 14px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  text-align: center;
+}
+
+.program-mini-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--teal);
+}
+
+.program-mini-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.program-meta {
+  grid-column: 1 / -1;
+  padding: 24px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+
+.program-meta p {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.program-meta p:last-child {
+  margin-bottom: 0;
+}
+
+.program-meta strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 3px;
+}
+
+.program-secondary {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-top: 22px;
+}
+
+.program-alt p {
+  color: var(--muted);
+}
+
+/* ---------- closing CTA ---------- */
+
+.home-cta {
+  padding: clamp(72px, 9vw, 112px) 0;
+  background: linear-gradient(140deg, var(--teal) 0%, var(--navy) 58%, var(--navy-deep) 100%);
+  text-align: center;
+}
+
+.home-cta h2 {
+  color: var(--white);
+  max-width: 18ch;
+  margin-inline: auto;
+}
+
+.home-cta .lede {
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 58ch;
+  margin: 0 auto 32px;
+}
+
+.home-cta .btn-row {
+  justify-content: center;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 1000px) {
+  .home-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .home-hero-media {
+    max-width: 560px;
+  }
+  .home-mission {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .home-impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .program-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .program-card-feature {
+    padding: 30px 26px;
+  }
+  .program-card-side {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .program-secondary {
+    grid-template-columns: 1fr;
+  }
+  .season-tabs {
+    width: 100%;
+    justify-content: stretch;
+  }
+  .season-tab {
+    flex: 1;
+    padding: 11px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .home-impact-grid {
+    grid-template-columns: 1fr;
+  }
+  .program-mini {
+    padding: 16px 8px;
+  }
+  .program-mini-value {
+    font-size: 1.4rem;
+  }
+  .program-mini-label {
+    font-size: 0.66rem;
+  }
+}

@@ -1,0 +1,794 @@
+.camp-hero .pill {
+  margin-bottom: 22px;
+}
+
+/* ==========================================================================
+   Feature hero: copy + inline stats beside a tilted photo collage,
+   followed by a light overview strip. Opt in per camp via `heroLayout`.
+   ========================================================================== */
+
+.camp-hero-feature {
+  padding-bottom: clamp(72px, 8vw, 104px);
+}
+
+.camp-feature-inner {
+  display: grid;
+  grid-template-columns: 1.02fr 1fr;
+  align-items: center;
+  gap: 56px;
+}
+
+.camp-feature-copy .pill {
+  margin-bottom: 22px;
+}
+
+.camp-feature-copy h1 {
+  max-width: 12ch;
+  margin-bottom: 22px;
+}
+
+.camp-feature-accent {
+  color: var(--cyan);
+}
+
+.camp-feature-copy .lede {
+  max-width: 46ch;
+  margin-bottom: 32px;
+}
+
+.camp-feature-rule {
+  height: 1px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.16);
+  margin: 40px 0 28px;
+}
+
+.camp-feature-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 52px;
+}
+
+.camp-feature-stat-value {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 3.4vw, 2.9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+.camp-feature-stat-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.camp-feature-highlight {
+  margin: 24px 0 0;
+  max-width: 52ch;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--cyan);
+}
+
+/* ---------- tilted photo collage ---------- */
+
+.camp-collage {
+  position: relative;
+  /* Every photo inside is absolutely positioned, so this box has no in-flow
+     content. It needs an explicit width or it shrink-to-fits to zero. */
+  width: 100%;
+  /* Padding-based height keeps the absolutely-placed photos in proportion as
+     the column narrows, so the arrangement never collapses. */
+  padding-top: 96%;
+}
+
+.camp-collage-item {
+  position: absolute;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 3px solid var(--white);
+  box-shadow: 0 24px 50px -22px rgba(0, 0, 0, 0.7);
+  background: var(--navy-light);
+}
+
+.camp-collage-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camp-collage .item-1 {
+  top: 0;
+  left: 0;
+  width: 63%;
+  aspect-ratio: 4 / 3;
+  transform: rotate(-3.5deg);
+  z-index: 2;
+}
+
+.camp-collage .item-2 {
+  top: 6%;
+  right: 0;
+  width: 45%;
+  aspect-ratio: 1 / 1;
+  transform: rotate(4deg);
+  z-index: 1;
+}
+
+.camp-collage .item-3 {
+  bottom: 0;
+  right: 6%;
+  width: 58%;
+  aspect-ratio: 4 / 3;
+  transform: rotate(-1.5deg);
+  z-index: 3;
+}
+
+/* Straddles the lead photo's bottom edge in the open lower-left area, so it
+   reads as a sticker on the collage rather than a label on one photo. */
+.camp-collage-tag {
+  position: absolute;
+  top: 47%;
+  left: 3%;
+  z-index: 4;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--cyan);
+  color: var(--navy-deep);
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 14px 30px -14px rgba(0, 0, 0, 0.75);
+}
+
+/* ---------- overview strip ---------- */
+
+.camp-overview {
+  padding: clamp(64px, 8vw, 96px) 0;
+  background: var(--white);
+}
+
+.camp-overview-head {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 44px;
+}
+
+.camp-overview-head h2 {
+  font-size: clamp(1.9rem, 3.4vw, 2.75rem);
+  margin-bottom: 16px;
+}
+
+.camp-overview-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.camp-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--overview-cols, 4), 1fr);
+  gap: 16px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Each card is an in-page link down to that session's write-up. */
+.camp-overview-grid li > a {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+  padding: 24px 18px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.camp-overview-grid li > a:hover {
+  transform: translateY(-3px);
+  border-color: rgba(38, 208, 255, 0.5);
+  box-shadow: var(--shadow);
+}
+
+.camp-overview-grid li > a:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.camp-overview-n {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--navy);
+  transition: color 0.2s ease;
+}
+
+.camp-overview-grid li > a:hover .camp-overview-n {
+  color: var(--teal);
+}
+
+.camp-overview-topic {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+@media (max-width: 980px) {
+  .camp-feature-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .camp-feature-copy h1 {
+    max-width: none;
+  }
+  .camp-collage {
+    max-width: 520px;
+    /* justify-self, not auto margins: auto margins would let this zero-content
+       box shrink to nothing again. */
+    justify-self: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .camp-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .camp-feature-stats {
+    gap: 18px 32px;
+  }
+  .camp-collage-tag {
+    font-size: 0.64rem;
+    padding: 8px 14px;
+  }
+  .camp-overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Placeholder shown in place of an interest-list button until a form exists. */
+.camp-hero-notice {
+  margin: 22px 0 0;
+  max-width: 58ch;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--cyan);
+}
+
+.camp-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 42px;
+}
+
+.camp-hero-meta > div {
+  flex: 1 1 190px;
+  padding: 18px 22px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--line-dark);
+  font-size: 0.98rem;
+  color: var(--white);
+}
+
+.camp-hero-meta span {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 5px;
+}
+
+/* ---------- stats ---------- */
+
+.camp-stats {
+  padding: clamp(56px, 7vw, 82px) 0 8px;
+}
+
+.camp-stats-head {
+  text-align: center;
+  margin-bottom: 34px;
+}
+
+.camp-stats-head h2 {
+  margin: 0;
+}
+
+.camp-highlight {
+  max-width: 74ch;
+  margin: 34px auto 0;
+  text-align: center;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* ---------- grade tracks ---------- */
+
+.track-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.track-card {
+  height: 100%;
+}
+
+.track-badge {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.track-card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ---------- attendance toggle ---------- */
+
+.attend-toggle {
+  display: inline-flex;
+  gap: 6px;
+  padding: 7px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  margin-bottom: 26px;
+}
+
+.attend-tab {
+  padding: 12px 30px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--muted);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.attend-tab.is-active {
+  background: var(--teal);
+  color: var(--white);
+  box-shadow: 0 10px 22px -14px rgba(15, 122, 140, 0.95);
+}
+
+.attend-panel {
+  padding: 34px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--white);
+  box-shadow: var(--shadow);
+  animation: fade-swap 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+  max-width: 760px;
+}
+
+.attend-panel h3 {
+  margin-bottom: 10px;
+}
+
+.attend-panel p {
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+/* ---------- check list ---------- */
+
+.check-list li {
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 12px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.check-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: var(--teal)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E")
+    center / 12px no-repeat;
+}
+
+.check-list-light li {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.check-list-light li::before {
+  background-color: var(--cyan);
+}
+
+/* ---------- compete-without-attending ---------- */
+
+.compete-section {
+  padding-top: 0;
+}
+
+.compete-card {
+  position: relative;
+  padding: clamp(38px, 5vw, 64px);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(140deg, var(--blue) 0%, var(--navy) 48%, var(--navy-deep) 100%);
+  overflow: hidden;
+}
+
+.compete-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(520px 320px at 92% 8%, rgba(38, 208, 255, 0.28), transparent 62%);
+  pointer-events: none;
+}
+
+.compete-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 62ch;
+}
+
+.compete-copy h2 {
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.compete-copy .lede {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.compete-copy .check-list {
+  margin: 24px 0 30px;
+}
+
+/* ---------- sessions ---------- */
+
+.session-list {
+  display: grid;
+  gap: 16px;
+}
+
+.session {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 24px;
+  padding: 30px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--white);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+}
+
+.session:hover {
+  border-color: rgba(38, 208, 255, 0.45);
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.session-num {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--teal) 0%, var(--navy) 100%);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+}
+
+.session-body h3 {
+  margin-bottom: 8px;
+}
+
+.session-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.session-meta span {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.session-meta .session-date {
+  color: var(--teal);
+  background: rgba(15, 122, 140, 0.09);
+  border-color: rgba(15, 122, 140, 0.2);
+  font-weight: 600;
+}
+
+.session-meta .session-attendance {
+  color: var(--blue);
+  background: rgba(0, 74, 173, 0.08);
+  border-color: rgba(0, 74, 173, 0.18);
+  font-weight: 600;
+}
+
+.session-body p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 78ch;
+}
+
+/* ==========================================================================
+   Alternating session blocks: text one side, photos the other, flipping each
+   row. Opt in per camp via `sessionLayout: "alternating"`.
+   ========================================================================== */
+
+.session-alt-list {
+  display: grid;
+}
+
+.session-alt {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 64px;
+  padding: 56px 0;
+  border-top: 1px solid var(--line);
+}
+
+.session-alt-list > *:first-child .session-alt {
+  border-top: 0;
+  padding-top: 24px;
+}
+
+/* Flipping the column order, not the DOM order, keeps the reading order intact
+   for screen readers and keyboard users. */
+.session-alt.is-flipped .session-alt-text {
+  order: 2;
+}
+
+.session-alt.is-textonly {
+  grid-template-columns: 1fr;
+}
+
+.session-alt.is-textonly .session-alt-text {
+  max-width: 76ch;
+}
+
+.session-alt-num {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 3.9rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--cyan-deep);
+  margin-bottom: 6px;
+}
+
+.session-alt-text h3 {
+  font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  margin-bottom: 14px;
+}
+
+.session-alt-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin-bottom: 18px;
+}
+
+.session-alt-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--teal);
+}
+
+.session-alt-meta svg {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+
+.session-alt-text p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ---------- session photo cluster ---------- */
+
+/* A fixed-height mosaic with fractional rows, rather than per-photo aspect
+   ratios. Every session's cluster then lands at the same height no matter how
+   many photos it has, which is what keeps the column edges aligned. */
+.session-alt-photos {
+  display: grid;
+  gap: 10px;
+  height: clamp(300px, 30vw, 400px);
+}
+
+.session-alt-photos figure {
+  margin: 0;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-2);
+  box-shadow: 0 8px 20px -14px rgba(16, 28, 51, 0.5);
+}
+
+.session-alt-photos img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.session-alt-photos figure:hover img {
+  transform: scale(1.04);
+}
+
+.session-alt-photos.count-1 {
+  grid-template-columns: 1fr;
+}
+
+.session-alt-photos.count-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Lead photo across the top, two beneath. */
+.session-alt-photos.count-3 {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1.5fr 1fr;
+}
+
+.session-alt-photos.count-3 figure:first-child {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 900px) {
+  .session-alt,
+  .session-alt.is-flipped {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 40px 0;
+  }
+  /* Photos always follow the copy once stacked. */
+  .session-alt.is-flipped .session-alt-text {
+    order: 0;
+  }
+}
+
+/* ---------- notice ---------- */
+
+.notice {
+  padding: 26px 30px;
+  border-radius: var(--radius);
+  background: rgba(0, 74, 173, 0.05);
+  border: 1px solid rgba(0, 74, 173, 0.16);
+  border-left: 4px solid var(--blue);
+}
+
+.notice strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 7px;
+}
+
+.notice p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 80ch;
+}
+
+/* ---------- other seasons ---------- */
+
+.camp-nav {
+  padding-bottom: clamp(64px, 8vw, 96px);
+}
+
+.camp-nav h3 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.camp-nav-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.camp-nav-card h4 {
+  font-size: 1.3rem;
+  margin: 16px 0 8px;
+}
+
+.camp-nav-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+}
+
+.camp-nav-link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--teal);
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 860px) {
+  .track-grid,
+  .camp-nav-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .session {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 24px;
+  }
+  .session-num {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+  .attend-toggle {
+    display: flex;
+    width: 100%;
+  }
+  .attend-tab {
+    flex: 1;
+    padding: 12px 10px;
+  }
+  .attend-panel {
+    padding: 26px 22px;
+  }
+}
