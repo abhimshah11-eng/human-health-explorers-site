@@ -585,7 +585,7 @@ export const faqGroups = [
       },
       {
         q: "Who supervises the sessions?",
-        a: "Our programs are run entirely by our trained team of high school students. There is no additional adult supervisor beyond our own team.",
+        a: "Our programs are run entirely by our trained team of high school students.",
       },
       {
         q: "How do I sign up?",
