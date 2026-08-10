@@ -478,6 +478,8 @@ export const team = {
     "Shriya Mangla",
     "Anika Kamath",
     "Adithya Karthik",
+    "Jaime Karuna",
+    "Krish Shah",
   ],
 };
 
