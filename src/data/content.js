@@ -456,12 +456,12 @@ export const team = {
     members: [
       {
         name: "Nathan Ho",
-        role: "Vice President",
+        role: "VP of Outreach",
         bio: "Nathan is a rising senior at Naperville North High School. He's passionate about working with kids and promoting the success of others, motivating him to work with Human Health Explorers. He's interested in going into a career in oncology where he can carry out his passion for community service in a professional setting.",
       },
       {
         name: "Hasan Naqvi",
-        role: "Vice President",
+        role: "VP of Curriculum",
         bio: "Hasan is a rising senior at Naperville Central High School. He loves to create a loving community that supports each other in learning and beyond for success, giving him the passion to be on the Human Health Explorers team. His dream is to become a dermatologist so he can help create a strong and healthy lifestyle for his community.",
       },
     ],
