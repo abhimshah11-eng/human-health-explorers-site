@@ -480,6 +480,7 @@ export const team = {
     "Adithya Karthik",
     "Jaime Karuna",
     "Krish Shah",
+    "Aaron Fu",
   ],
 };
 
