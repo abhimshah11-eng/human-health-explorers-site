@@ -185,7 +185,7 @@ export default function Home() {
             <span className="eyebrow eyebrow-light">Get involved</span>
             <h2>Fall camp is coming. Be first to hear.</h2>
             <p className="lede">
-              Four connected weekly sessions this fall, two grade tracks, and a final
+              Four standalone Sunday sessions this fall, two grade tracks, and a final
               challenge to wrap it all up.
             </p>
             <div className="btn-row">

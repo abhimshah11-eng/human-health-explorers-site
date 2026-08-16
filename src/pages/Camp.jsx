@@ -386,7 +386,7 @@ function CampBody({ camp, slug, isUpcoming }) {
           {isUpcoming && (
             <p>
               Photos from our Summer 2026 camp at Nichols Library. Fall runs the same
-              way, just connected week to week.
+              way, in the same room.
             </p>
           )}
         </Reveal>

@@ -91,8 +91,8 @@ export default function FAQ() {
             <div className="faq-card faq-card-alt">
               <h3>Looking for a program?</h3>
               <p>
-                Fall 2026 runs four connected Sunday sessions from October 18 to
-                November 8, split into two grade tracks, ending in a final challenge.
+                Fall 2026 runs four Sunday sessions from October 18 to November 8,
+                split into two grade tracks, ending in a final challenge.
               </p>
               <Link to="/camps/fall-2026" className="btn btn-primary">
                 Fall 2026 details

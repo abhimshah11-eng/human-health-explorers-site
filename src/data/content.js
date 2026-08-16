@@ -306,10 +306,10 @@ export const camps = {
     statusLabel: "Upcoming",
     title: "Fall Camp",
     cardBlurb:
-      "Four connected weekly sessions this fall, split into two grade tracks and ending in a final challenge.",
+      "Four standalone Sunday sessions this fall, split into two grade tracks and ending in a final challenge.",
     cardStat: "October 18 – November 8",
     tagline:
-      "Four connected weekly sessions, two grade tracks, and a final challenge to wrap it all up.",
+      "Four standalone Sunday sessions, two grade tracks, and a final challenge to wrap it all up.",
     venue: "Nichols Library, Naperville",
     schedule:
       "Four Sunday sessions this fall: October 18, 25, November 1, and 8, from 2:00 to 3:30pm.",
@@ -322,7 +322,7 @@ export const camps = {
       { display: "3", label: "Topics" },
     ],
     highlight:
-      "The format changes this fall. Summer's sessions were fully standalone, so students could drop into any one of them. Fall is built as a connected arc instead. Each week picks up where the last one left off, so students have a real reason to come back.",
+      "Every session stands on its own, the same way summer's did. Students can come to all four or just the ones that fit their schedule, and no session assumes they were at the last one. What's new this fall is the split into two grade tracks, so the same topic lands at the right depth for younger and older students.",
     tracks: [
       {
         name: "Junior (Grades 4–6)",
@@ -332,7 +332,7 @@ export const camps = {
       {
         name: "Senior (Grades 7–8)",
         description:
-          "A faster pace and deeper material. Students work with more independence and take on the connected challenge with less structure handed to them.",
+          "A faster pace and deeper material. Students work with more independence and take on the final challenge with less structure handed to them.",
       },
     ],
     // Topic names only. Activity formats, competition rounds, and mechanics stay
