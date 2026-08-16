@@ -307,39 +307,50 @@ export const camps = {
     title: "Fall Camp",
     cardBlurb:
       "Four connected weekly sessions this fall, split into two grade tracks and ending in a final challenge.",
-    cardStat: "Details coming soon",
+    cardStat: "October 18 – November 8",
     tagline:
       "Four connected weekly sessions, two grade tracks, and a final challenge to wrap it all up.",
-    venue: "Location to be announced",
-    schedule: "Four weekly sessions this fall, exact dates coming soon.",
+    venue: "Nichols Library, Naperville",
+    schedule:
+      "Four Sunday sessions this fall: October 18, 25, November 1, and 8, from 2:00 to 3:30pm.",
     photoSource: "summer",
     // Not "Impact at a glance" — fall hasn't happened yet, so these are plans.
     statsHeading: "What to expect",
     stats: [
-      { display: "4", label: "Weekly Sessions" },
+      { display: "4", label: "Sessions" },
       { display: "2", label: "Grade Tracks" },
+      { display: "3", label: "Topics" },
     ],
     highlight:
       "The format changes this fall. Summer's sessions were fully standalone, so students could drop into any one of them. Fall is built as a connected arc instead. Each week picks up where the last one left off, so students have a real reason to come back.",
     tracks: [
       {
-        name: "Grades 4–6",
+        name: "Junior (Grades 4–6)",
         description:
           "Built for younger explorers. More guided activities, more scaffolding, and concepts introduced through hands-on demos before any of the vocabulary shows up.",
       },
       {
-        name: "Grades 7–8",
+        name: "Senior (Grades 7–8)",
         description:
           "A faster pace and deeper material. Students work with more independence and take on the connected challenge with less structure handed to them.",
       },
     ],
+    // Topic names only. Activity formats, competition rounds, and mechanics stay
+    // unpublished until each session has run — same rule as never posting
+    // students' names or session answers ahead of time.
+    topics: [
+      { n: 1, name: "Heart Health" },
+      { n: 2, name: "Genetics & DNA" },
+      { n: 3, name: "Gut & Microbiology" },
+      { n: 4, name: "Final Challenge" },
+    ],
     attendanceInfo: {
       title: "In person",
       blurb:
-        "Four consecutive weekly sessions this fall, one hour each, at a Naperville location to be announced. Hands-on materials provided at no cost.",
+        "Four consecutive Sunday sessions this fall, 90 minutes each, at Nichols Library in Naperville. Hands-on materials provided at no cost.",
     },
     interestNotice:
-      "Fall program details and registration coming soon. Check back or follow us on Instagram for updates.",
+      "Registration for fall camp opens soon. Check back or follow us on Instagram for updates.",
     // Photos unique to this page: nothing here appears on the homepage or the
     // Summer camp page.
     galleryPhotos: pickPhotos(
@@ -351,7 +362,7 @@ export const camps = {
       "session4-11"
     ),
     curriculumNote:
-      "Session-by-session topics are still being finalized. We publish curriculum only once it's locked in. Check back before October, or join the interest list to hear it first.",
+      "Full session activities are still being finalized. We'll share more as sessions approach.",
   },
 };
 

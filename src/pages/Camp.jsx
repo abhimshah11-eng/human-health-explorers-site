@@ -222,7 +222,9 @@ function CampBody({ camp, slug, isUpcoming }) {
             <h2>Different grades, different scaffolding</h2>
             <p>
               Rather than aim one curriculum at the middle and lose both ends, fall camp
-              splits into two tracks that run the same arc at different depths.
+              splits into two tracks. Both share the same core lesson each week, then
+              break into different activities and different competitions matched to
+              their level.
             </p>
           </Reveal>
           <div className="track-grid">
@@ -235,6 +237,30 @@ function CampBody({ camp, slug, isUpcoming }) {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+    )}
+
+    {/* ---------- fall-only: topic list ----------
+        Names only. What each session actually does isn't published until it has
+        run, so there is deliberately no description field to render here. */}
+    {camp.topics && (
+      <section className="section">
+        <div className="container">
+          <Reveal className="section-head">
+            <span className="eyebrow">Topics</span>
+            <h2>What we'll cover</h2>
+          </Reveal>
+          <Reveal delay={70}>
+            <ol className="camp-topics">
+              {camp.topics.map((topic) => (
+                <li key={topic.n}>
+                  <span className="camp-topic-num">{topic.n}</span>
+                  <span className="camp-topic-name">{topic.name}</span>
+                </li>
+              ))}
+            </ol>
+          </Reveal>
         </div>
       </section>
     )}
