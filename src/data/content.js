@@ -341,7 +341,7 @@ export const camps = {
     topics: [
       { n: 1, name: "Heart Health" },
       { n: 2, name: "Genetics & DNA" },
-      { n: 3, name: "Gut & Microbiology" },
+      { n: 3, name: "Gut Health & Microbiology" },
       { n: 4, name: "Final Challenge" },
     ],
     attendanceInfo: {
