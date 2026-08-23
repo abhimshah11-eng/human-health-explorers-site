@@ -183,13 +183,21 @@ export default function Home() {
         <div className="container">
           <Reveal>
             <span className="eyebrow eyebrow-light">Get involved</span>
-            <h2>Fall camp is coming. Be first to hear.</h2>
+            <h2>Fall camp registration is open.</h2>
             <p className="lede">
               Four standalone Sunday sessions this fall, two grade tracks, and a final
               challenge to wrap it all up.
             </p>
             <div className="btn-row">
-              <Link to="/camps/fall-2026" className="btn btn-primary btn-lg">
+              <a
+                href={org.fallInterestForm}
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-primary btn-lg"
+              >
+                Register now
+              </a>
+              <Link to="/camps/fall-2026" className="btn btn-ghost-light btn-lg">
                 Fall 2026 details
               </Link>
               <Link to="/get-involved" className="btn btn-ghost-light btn-lg">

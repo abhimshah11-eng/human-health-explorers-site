@@ -135,7 +135,7 @@ export default function Camp() {
                     rel="noreferrer"
                     className="btn btn-primary btn-lg"
                   >
-                    Join the interest list
+                    Register now
                   </a>
                 )}
                 <a

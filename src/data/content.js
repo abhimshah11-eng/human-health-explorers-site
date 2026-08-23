@@ -19,8 +19,9 @@ export const org = {
   instagram: "https://www.instagram.com/humanhealthexplorers",
   instagramHandle: "@humanhealthexplorers",
   summerInterestForm: "https://forms.gle/e7idfGMdKgrFG57h9",
-  // Fall 2026 needs its own form — falls back to the summer one until it exists.
-  fallInterestForm: null,
+  // Fall 2026 registration. An upcoming camp must never link a past season's
+  // form, so this stays null until its own form is live.
+  fallInterestForm: "https://forms.gle/oKgtSKUp34Euoe5y8",
 };
 
 // Deduplicated from raw sign-up data: 181 entries -> 35 unique schools.
@@ -349,6 +350,8 @@ export const camps = {
       blurb:
         "Four consecutive Sunday sessions this fall, 90 minutes each, at Nichols Library in Naperville. Hands-on materials provided at no cost.",
     },
+    // Only rendered when no form URL exists — kept as the fallback for the next
+    // upcoming season, before its form goes live.
     interestNotice:
       "Registration for fall camp opens soon. Check back or follow us on Instagram for updates.",
     // Photos unique to this page: nothing here appears on the homepage or the

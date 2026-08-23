@@ -7,10 +7,8 @@ const paths = [
   {
     tag: "For families",
     title: "Send your student",
-    body: "Camps are free, hands-on, and built for grades 4 through 8. Fall 2026 runs four standalone Sunday sessions from October 18 to November 8, split into two grade tracks. Registration opens soon, so check the Fall page or follow us for updates.",
-    // No live fall form yet, so this points at updates rather than a stale
-    // summer form. Swap back to the interest form once fall registration opens.
-    action: { label: "Follow for updates", href: org.instagram, external: true },
+    body: "Camps are free, hands-on, and built for grades 4 through 8. Fall 2026 runs four standalone Sunday sessions from October 18 to November 8, split into two grade tracks. Registration is open now.",
+    action: { label: "Register for fall camp", href: org.fallInterestForm, external: true },
     secondary: { label: "Fall 2026 details", to: "/camps/fall-2026" },
   },
   {
