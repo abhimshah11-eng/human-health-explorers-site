@@ -152,10 +152,10 @@ export default function Home() {
               <h3>Workshops</h3>
               <p>
                 In-school and partner workshops that bring the curriculum to students
-                where they already are: a full day at Madison Junior High and an ongoing
-                Friday series at Ray Chinese School.
+                where they already are: full days at Madison and Kennedy Junior High and
+                an ongoing Friday series at Ray Chinese School.
               </p>
-              <div className="program-card-stat">2 workshops · 145 students</div>
+              <div className="program-card-stat">3 workshops · 345 students</div>
               <Link to="/workshops" className="program-card-link">
                 See our workshops →
               </Link>

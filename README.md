@@ -73,19 +73,24 @@ Session 2 candids needs a manual download from the Drive web UI.
 
 ## Photo privacy
 
-**The Ray Chinese School workshop photos have every camper's face blurred. The
-instructors' faces are not.** That is deliberate, not a processing artefact.
-Those campers are ages 5–12 at a partner organisation, and the blurring was an
-explicit requirement.
+Two workshops have blurred photos, with **different rules**:
 
-If you replace or add photos to that workshop, they must get the same treatment
-before they go live. The tooling used is in the session scratchpad, but the
-method is what matters:
+- **Ray Chinese School** — every camper's face is blurred, the instructors'
+  faces are not. Those campers are ages 5–12 at a partner organisation, and the
+  blurring was an explicit requirement.
+- **Kennedy Junior High** — **every** identifiable face is blurred, students and
+  HHE instructors alike, because the brief was "blur any identifiable faces".
+
+Both are deliberate, not processing artefacts. If you replace or add photos to
+either workshop, they must get the same treatment before they go live. The
+tooling used is in the session scratchpad, but the method is what matters:
 
 1. Detect faces (OpenCV's YuNet DNN model works well; the Haar cascades that
    used to ship with OpenCV are gone as of v5).
-2. Render a numbered overlay of every detection and **decide by eye** which are
-   campers and which are instructors. No detector can make that call.
+2. Render a numbered overlay of every detection, plus a grid of cropped
+   detections, and **decide by eye** which are real faces and which are
+   furniture, floor, wall art or noise. At a low confidence threshold most
+   detections are junk, and no detector can make that call for you.
 3. Blur by pixelating the region down and then smoothing it, through a feathered
    ellipse padded well beyond the detector's box. Pixelating first is what makes
    it unrecoverable; a plain blur can be partly undone.
@@ -144,12 +149,12 @@ The Partners page draws a deliberate line, and it's easy to blur by accident:
 
 Two different metrics live on this site and they are supposed to differ:
 
-- **All-time, all-program** (`impactStats` in `content.js`) — 280+ students, 17
+- **All-time, all-program** (`impactStats` in `content.js`) — 480+ students, 18
   sessions. Used on the homepage and About page only.
 - **Season- or program-scoped** — e.g. Summer Camp's own page says 100+ students
   and 6 sessions, because that is what that camp did.
 
-Do not "fix" the Summer page to say 280+. The all-time figure breaks down as:
+Do not "fix" the Summer page to say 480+. The all-time figure breaks down as:
 
 | Program | Students | Sessions |
 |---|---|---|
@@ -157,10 +162,26 @@ Do not "fix" the Summer page to say 280+. The all-time figure breaks down as:
 | Summer 2026 — Nichols Library | 100 | 6 |
 | Madison Junior High workshop | 50 | 2 (of 5 class periods) |
 | Ray Chinese School | 95 | 5 |
-| **Total** | **280** | **17** |
+| Kennedy Junior High workshop | 200 | 1 (see below) |
+| **Total** | **480** | **18** |
 
 The Ray Chinese 95 is confirmed by Abhi as **unique students**, not a sum of
-per-session attendance.
+per-session attendance. The Kennedy 200 is an **estimate**: 8 class periods at
+roughly 25 students each.
+
+### The 15 vs 18 session count is deliberate
+
+The Workshops page says **15 sessions**; `impactStats` says **18**. That is not
+a bug, it is Abhi's call from 2026-10-06:
+
+- The **Workshops page** counts one session per class period, so Kennedy's
+  single day contributes **8** (2 Madison + 5 Ray Chinese + 8 Kennedy = 15).
+- The **all-time** figure counts Kennedy's day as **one** session
+  (17 + 1 = 18).
+
+Student totals do agree across the two: the Workshops page's 345 is the
+workshop share of the all-time 480. If either number is ever recalculated,
+change both comment blocks (`impactStats` and `workshopStats`) together.
 
 ## Still needed from Abhi
 

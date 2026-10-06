@@ -79,14 +79,21 @@ export const missionParagraphs = [
 // Individual camp pages keep their own season-scoped numbers (Summer stays 100+)
 // — the two are different metrics, not a mismatch.
 //
-//   280 = 35 Spring/Alive Center + 50 Madison JH + 100 Summer Camp + 95 Ray Chinese
-//   17  = 4 Spring + 6 Summer + 2 Madison (2 of 5 class periods ran) + 5 Ray Chinese
+//   480 = 35 Spring/Alive Center + 50 Madison JH + 100 Summer Camp
+//         + 95 Ray Chinese + 200 Kennedy JH
+//   18  = 4 Spring + 6 Summer + 2 Madison (2 of 5 class periods ran)
+//         + 5 Ray Chinese + 1 Kennedy
+//
+// Kennedy counts as ONE session here on purpose, even though the Workshops page
+// counts its eight class periods as eight. Abhi's call, 2026-10-06. See the
+// note above workshopStats before "fixing" either number.
 //
 // The Ray Chinese 95 is confirmed by Abhi as unique students, not attendances.
+// The Kennedy 200 is an estimate: 8 periods x roughly 25 students.
 export const impactStats = [
-  { value: "280+", label: "Unique Students Reached", detail: "across every camp and workshop since early 2026" },
+  { value: "480+", label: "Unique Students Reached", detail: "across every camp and workshop since early 2026" },
   { value: "30+", label: "Schools Represented", detail: "elementary, middle, and high schools across Naperville, Aurora, Plainfield and beyond" },
-  { value: "17", label: "Sessions Delivered", detail: "free camp and workshop sessions, all-time" },
+  { value: "18", label: "Sessions Delivered", detail: "free camp and workshop sessions, all-time" },
   { value: "$1,000+", label: "In Donated Prizes", detail: "from local businesses and community partners" },
 ];
 
@@ -417,20 +424,54 @@ export const workshops = [
       { label: "Ray Chinese Workshop 5", date: "August 7th, 2026" },
     ],
   },
+  {
+    n: 3,
+    name: "Kennedy Junior High School",
+    location: "Naperville, IL",
+    dates: "October 2, 2026",
+    // 8 periods x roughly 25 students. An estimate, not a roster count.
+    students: "200 students",
+    summary:
+      "A Brain Science & Decision-Making workshop delivered across eight class periods in a single school day, reaching about 200 students. The same session ran period after period in the school library, so every class that came through got the full lesson.",
+    // Every identifiable face is blurred in these, students and instructors
+    // alike. See the README's "Photo privacy" note before adding or replacing
+    // any of them.
+    photos: [
+      { src: "/photos/workshops/kennedy-01.jpg", alt: "An HHE instructor presenting the Brain Science and Healthy Decision Making title slide to a full library at Kennedy Junior High" },
+      { src: "/photos/workshops/kennedy-02.jpg", alt: "Two HHE instructors leading a discussion prompt with students seated at library tables" },
+      { src: "/photos/workshops/kennedy-03.jpg", alt: "An HHE instructor opening the session with a slide introducing Human Health Explorers" },
+    ],
+    // Periods 1 to 6, 8 and 9, as given by Abhi. Period 7 did not run.
+    sessions: [
+      { label: "October 2nd, 1st period" },
+      { label: "October 2nd, 2nd period" },
+      { label: "October 2nd, 3rd period" },
+      { label: "October 2nd, 4th period" },
+      { label: "October 2nd, 5th period" },
+      { label: "October 2nd, 6th period" },
+      { label: "October 2nd, 8th period" },
+      { label: "October 2nd, 9th period" },
+    ],
+  },
 ];
 
-// Workshops only — must stay consistent with the all-time totals in impactStats,
-// which count these same 7 sessions and 145 students.
-//   7   = 2 Madison class periods + 5 Ray Chinese sessions
-//   145 = 50 Madison + 95 Ray Chinese (13 + 22 + 20 + 20 + 20)
+// Workshops only. These count one session per class period:
+//   15  = 2 Madison periods + 5 Ray Chinese sessions + 8 Kennedy periods
+//   345 = 50 Madison + 95 Ray Chinese + 200 Kennedy (8 periods x roughly 25)
+//
+// DELIBERATE DIVERGENCE from impactStats, decided by Abhi on 2026-10-06: the
+// all-time "Sessions Delivered" counts the whole Kennedy day as ONE session
+// (17 -> 18), while this page counts its eight periods separately (7 -> 15).
+// So 15 here and 18 there are not a bug. Student totals do agree: 345 of the
+// all-time 480 came from workshops.
 export const workshopStats = [
-  { display: "2", label: "Workshops" },
-  { display: "7", label: "Total Sessions" },
-  { display: "145", label: "Students Taught" },
+  { display: "3", label: "Workshops" },
+  { display: "15", label: "Total Sessions" },
+  { display: "345", label: "Students Taught" },
 ];
 
 export const workshopStatsNote =
-  "Two workshop engagements to date. Madison Junior High ran across two class periods in a single day, reaching 50 students; the Ray Chinese School series ran five Friday sessions, reaching 95 unique students.";
+  "Three workshop engagements to date. Madison Junior High ran across two class periods in a single day, reaching 50 students; the Ray Chinese School series ran five Friday sessions, reaching 95 unique students; Kennedy Junior High ran across eight class periods in a single day, reaching about 200 students.";
 
 // Named and credentialed, unlike the anonymous parent/student carousel. This is
 // from a signed letter of reference written for HHE to use publicly, so the full
@@ -498,12 +539,14 @@ export const team = {
   ],
 };
 
-// Adds up to the 280+ headline above. Weights are percentages of the largest row.
+// Adds up to the 480+ headline above. Weights are percentages of the largest
+// row, which is now Kennedy at 200.
 export const participation = [
-  { label: "Spring 2026 Camp · The Alive Center", display: "35", weight: 35 },
-  { label: "Summer 2026 Camp · Nichols Library", display: "100", weight: 100 },
-  { label: "Madison Junior High workshop", display: "50", weight: 50 },
-  { label: "Ray Chinese School workshops", display: "95", weight: 95 },
+  { label: "Spring 2026 Camp · The Alive Center", display: "35", weight: 18 },
+  { label: "Summer 2026 Camp · Nichols Library", display: "100", weight: 50 },
+  { label: "Madison Junior High workshop", display: "50", weight: 25 },
+  { label: "Ray Chinese School workshops", display: "95", weight: 48 },
+  { label: "Kennedy Junior High workshop", display: "200", weight: 100 },
 ];
 
 // Organizational relationships only. Deliberately NOT listed here:
