@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useLayoutEffect, useRef, useState } from "react";
 import { workshopReferences } from "../data/content";
 
 // Minimum horizontal travel before a touch counts as a swipe rather than a tap
@@ -14,13 +14,33 @@ const SWIPE_MIN = 40;
  */
 export default function ReferenceSlider({ items = workshopReferences }) {
   const [index, setIndex] = useState(0);
+  const [stageHeight, setStageHeight] = useState(null);
   const startX = useRef(null);
+  const cards = useRef([]);
   const count = items.length;
 
   const go = useCallback(
     (next) => setIndex(((next % count) + count) % count),
     [count]
   );
+
+  // These references vary a lot in length, so sizing every card to the longest
+  // one leaves a short quote floating in dead space. Instead each card keeps its
+  // natural height and the stage animates between them, which avoids the blank
+  // gap without the height snapping as it advances.
+  useLayoutEffect(() => {
+    const measure = () => {
+      const el = cards.current[index];
+      if (el) setStageHeight(el.offsetHeight);
+    };
+    measure();
+
+    // Re-measure when reflow changes a card's height: viewport resize, a late
+    // webfont swap, or the container narrowing.
+    const ro = new ResizeObserver(measure);
+    cards.current.forEach((el) => el && ro.observe(el));
+    return () => ro.disconnect();
+  }, [index, items]);
 
   if (count === 0) return null;
 
@@ -54,12 +74,20 @@ export default function ReferenceSlider({ items = workshopReferences }) {
       }}
       onTouchEnd={onTouchEnd}
     >
-      {/* Every card occupies the same grid cell, so the stage is exactly as tall
-          as the longest reference and never jumps height as it advances. */}
-      <div className="reference-stage" aria-live="polite">
+      {/* Cards share one grid cell so they cross-fade in place. The explicit
+          height is what the active card actually needs; without JS the grid
+          falls back to the tallest card, which is correct, just roomier. */}
+      <div
+        className="reference-stage"
+        aria-live="polite"
+        style={stageHeight ? { height: `${stageHeight}px` } : undefined}
+      >
         {items.map((ref, i) => (
           <figure
             key={ref.name}
+            ref={(el) => {
+              cards.current[i] = el;
+            }}
             className={`reference-card ${i === index ? "is-active" : ""}`}
             aria-hidden={i !== index}
           >

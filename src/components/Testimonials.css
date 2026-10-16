@@ -16,11 +16,15 @@
   padding-top: 34px;
 }
 
-/* Every quote occupies the same grid cell. The tallest one sets the height, so
-   the section is sized to whichever set it was given and never jumps mid-cycle. */
+/* Quotes share one grid cell so they cross-fade in place. `align-items: start`
+   keeps a short quote from being stretched to the height of the longest one;
+   the component then sets an explicit height per slide and this transition
+   animates between them, so there is no dead space and no snap. */
 .testimonial-quotes {
   display: grid;
-  align-items: center;
+  align-items: start;
+  overflow: hidden;
+  transition: height 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .testimonial-quotes > * {
@@ -137,6 +141,9 @@
   .testimonial-quote {
     transition: none;
     transform: none;
+  }
+  .testimonial-quotes {
+    transition: none;
   }
   .testimonial-arrow:hover {
     transform: none;

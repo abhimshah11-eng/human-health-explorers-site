@@ -219,12 +219,18 @@
   padding-bottom: clamp(56px, 7vw, 84px);
 }
 
-/* Every card sits in the same grid cell, so the stage is sized to the longest
-   reference and the card never changes height as the slider advances. */
+/* Cards share one grid cell so they cross-fade in place. `align-items: start`
+   stops a short reference being stretched to the height of the longest one,
+   which is what left Mayerhofer's quote sitting in a half-empty card. The
+   slider then sets an explicit height per slide and this transition animates
+   between them, so there is no dead space and no snap. */
 .reference-stage {
   display: grid;
+  align-items: start;
   max-width: 860px;
   margin-inline: auto;
+  overflow: hidden;
+  transition: height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reference-stage > * {
@@ -378,6 +384,9 @@
   .reference-card {
     transition: none;
     transform: none;
+  }
+  .reference-stage {
+    transition: none;
   }
   .reference-arrow:hover {
     transform: none;

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { testimonials } from "../data/content";
 import "./Testimonials.css";
 
@@ -7,9 +7,25 @@ const INTERVAL = 7000;
 export default function Testimonials({ items = testimonials }) {
   const [index, setIndex] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [stageHeight, setStageHeight] = useState(null);
+  const quotes = useRef([]);
   const count = items.length;
 
   const go = useCallback((next) => setIndex(((next % count) + count) % count), [count]);
+
+  // Quote lengths vary from one line to a full paragraph, so sizing every slide
+  // to the longest would strand the short ones in dead space. Each slide keeps
+  // its own height and the stage animates between them.
+  useLayoutEffect(() => {
+    const measure = () => {
+      const el = quotes.current[index];
+      if (el) setStageHeight(el.offsetHeight);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    quotes.current.forEach((el) => el && ro.observe(el));
+    return () => ro.disconnect();
+  }, [index, items]);
 
   // Respect a reduced-motion preference by not auto-advancing at all.
   const reduceMotion = useRef(false);
@@ -55,12 +71,20 @@ export default function Testimonials({ items = testimonials }) {
             />
           </svg>
 
-          {/* All quotes share one grid cell, so the stage is exactly as tall as
-              the longest quote in this set and never jumps as it advances. */}
-          <div className="testimonial-quotes" aria-live="polite">
+          {/* Quotes share one grid cell so they cross-fade in place. The
+              explicit height is what the active quote needs; without JS the
+              grid falls back to the tallest, which is correct, just roomier. */}
+          <div
+            className="testimonial-quotes"
+            aria-live="polite"
+            style={stageHeight ? { height: `${stageHeight}px` } : undefined}
+          >
             {items.map((t, i) => (
               <blockquote
                 key={t.quote}
+                ref={(el) => {
+                  quotes.current[i] = el;
+                }}
                 className={`testimonial-quote ${i === index ? "is-active" : ""}`}
                 aria-hidden={i !== index}
               >
