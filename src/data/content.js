@@ -476,12 +476,33 @@ export const workshopStatsNote =
 // Named and credentialed, unlike the anonymous parent/student carousel. This is
 // from a signed letter of reference written for HHE to use publicly, so the full
 // name and title are intentional here.
-export const workshopReference = {
-  quote:
-    "HHE thoughtfully modified both their language and activities to make the content more accessible and engaging for younger learners while still maintaining educational value for older students.",
-  name: "Xin Liu",
-  role: "Program Director, Ray Chinese School Summer Camp",
-};
+// Named and credentialed on purpose. Every person here gave written permission
+// to be quoted publicly with their full name and title, which is why these are
+// not anonymised the way the parent/student carousel is.
+//
+// QUOTES ARE VERBATIM. Do not reword, shorten, or correct them, including the
+// "kept student involved" slip in the Sanford quote. If one needs changing,
+// that is a conversation with the person who wrote it, not an edit here.
+export const workshopReferences = [
+  {
+    quote:
+      "HHE thoughtfully modified both their language and activities to make the content more accessible and engaging for younger learners while still maintaining educational value for older students.",
+    name: "Xin Liu",
+    role: "Program Director, Ray Chinese School Summer Camp",
+  },
+  {
+    quote:
+      "The representatives from Human Health Explorers held the attention and interest of our students while broadening their understanding of brain health and science.  The dynamic presentation kept student involved in learning through conversational questions and activities.  Our junior high students loved learning from the cool high school students.  Through eight periods of lessons, the Human Health Explorers kept up their energy all day!",
+    name: "Tobey Sanford",
+    role: "Learning Commons Director, Kennedy Junior High School",
+  },
+  {
+    quote:
+      "I heard nothing but compliments from the students who attended, and it was wonderful to hear how much they enjoyed the experience.",
+    name: "Mrs. Jihan Mayerhofer",
+    role: "Science Department Coordinator, Kennedy Junior High School",
+  },
+];
 
 // Headshots: add `photo: "/photos/team/<name>.jpg"` to any member and it renders
 // in place of the initials placeholder. Same circle, no layout change needed.

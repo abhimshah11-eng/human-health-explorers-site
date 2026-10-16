@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
+import ReferenceSlider from "../components/ReferenceSlider";
 import { HeroPhoto, StatBar } from "../components/Media";
 import { CalendarIcon, PinIcon, PeopleIcon } from "../components/Icons";
-import { workshops, workshopStats, workshopStatsNote, workshopReference, org } from "../data/content";
+import { workshops, workshopStats, workshopStatsNote, org } from "../data/content";
 import "./Workshops.css";
 
 export default function Workshops() {
@@ -117,26 +118,11 @@ export default function Workshops() {
         </div>
       </section>
 
-      {/* ---------- named reference callout ---------- */}
+      {/* ---------- named reference callouts ---------- */}
       <section className="section-tight reference-section">
         <div className="container">
           <Reveal>
-            <figure className="reference-card">
-              <span className="reference-label">From a letter of reference</span>
-              <svg className="reference-mark" viewBox="0 0 32 24" aria-hidden="true">
-                <path
-                  d="M13 24V13.2C13 5.9 17.4 1.2 25 0l1.6 3.6c-4.1 1-6.2 3.4-6.4 6.6H26V24zM0 24V13.2C0 5.9 4.4 1.2 12 0l1.6 3.6C9.5 4.6 7.4 7 7.2 10.2H13V24z"
-                  fill="currentColor"
-                />
-              </svg>
-              <blockquote>
-                <p>{workshopReference.quote}</p>
-              </blockquote>
-              <figcaption>
-                <span className="reference-name">{workshopReference.name}</span>
-                <span className="reference-role">{workshopReference.role}</span>
-              </figcaption>
-            </figure>
+            <ReferenceSlider />
           </Reveal>
         </div>
       </section>

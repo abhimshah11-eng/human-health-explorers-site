@@ -219,16 +219,45 @@
   padding-bottom: clamp(56px, 7vw, 84px);
 }
 
+/* Every card sits in the same grid cell, so the stage is sized to the longest
+   reference and the card never changes height as the slider advances. */
+.reference-stage {
+  display: grid;
+  max-width: 860px;
+  margin-inline: auto;
+}
+
+.reference-stage > * {
+  grid-area: 1 / 1;
+}
+
 .reference-card {
   position: relative;
   margin: 0;
-  max-width: 860px;
-  margin-inline: auto;
+  width: 100%;
   padding: 40px 44px 36px;
   border-radius: var(--radius-lg);
   background: var(--surface);
   border: 1px solid var(--line);
   border-left: 4px solid var(--teal);
+  opacity: 0;
+  visibility: hidden;          /* still contributes to sizing the grid cell */
+  transform: translateY(8px);
+  transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    visibility 0.45s;
+}
+
+.reference-card.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+/* The slider takes arrow keys, so it needs a visible focus ring of its own. */
+.reference-slider:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 8px;
+  border-radius: var(--radius-lg);
 }
 
 .reference-label {
@@ -285,12 +314,88 @@
   color: var(--muted);
 }
 
+/* ---------- slider controls ---------- */
+
+.reference-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.reference-arrow {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--navy);
+  transition: border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.reference-arrow:hover {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+.reference-arrow:focus-visible,
+.reference-dot:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 3px;
+}
+
+.reference-dots {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.reference-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(22, 35, 61, 0.2);
+  transition: background 0.2s ease, width 0.2s ease;
+}
+
+.reference-dot:hover {
+  background: rgba(22, 35, 61, 0.4);
+}
+
+.reference-dot.is-active {
+  width: 26px;
+  border-radius: 999px;
+  background: var(--teal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reference-card {
+    transition: none;
+    transform: none;
+  }
+  .reference-arrow:hover {
+    transform: none;
+  }
+}
+
 @media (max-width: 640px) {
   .reference-card {
     padding: 30px 24px 26px;
   }
   .reference-mark {
     display: none;
+  }
+  .reference-nav {
+    gap: 12px;
+  }
+  .reference-dots {
+    gap: 7px;
   }
 }
 
