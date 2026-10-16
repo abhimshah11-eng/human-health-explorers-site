@@ -4,7 +4,7 @@ import Reveal from "../components/Reveal";
 import SchoolMarquee from "../components/SchoolMarquee";
 import Testimonials from "../components/Testimonials";
 import { HeroPhotoGrid } from "../components/Media";
-import { camps, campOrder, missionParagraphs, impactStats, org } from "../data/content";
+import { camps, campOrder, missionParagraphs, impactStats, allTestimonials, org } from "../data/content";
 import "./Home.css";
 
 export default function Home() {
@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* ---------- testimonials ---------- */}
-      <Testimonials />
+      <Testimonials items={allTestimonials} />
 
       {/* ---------- closing CTA ---------- */}
       <section className="home-cta">

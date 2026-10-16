@@ -642,6 +642,24 @@ export function testimonialsForCamp(slug = "") {
   return testimonials.filter((t) => t.season === season);
 }
 
+// Homepage carousel: every quote on the site. The anonymous parent and student
+// quotes keep their existing order, then the three named letters of reference
+// are appended with their full name and title, which those three people gave
+// written permission to publish.
+//
+// Note on height: all slides share one grid cell, so the section is sized to
+// the longest quote. The Sanford reference is 439 characters and roughly
+// doubles that section. Abhi chose that tradeoff on 2026-10-16, knowing the
+// shorter slides carry the extra whitespace.
+export const allTestimonials = [
+  ...testimonials,
+  ...workshopReferences.map((ref) => ({
+    season: null,
+    source: `${ref.name}, ${ref.role}`,
+    quote: ref.quote,
+  })),
+];
+
 export const faqGroups = [
   {
     title: "Parent FAQ",
